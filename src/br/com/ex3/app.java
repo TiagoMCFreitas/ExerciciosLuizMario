@@ -124,6 +124,6 @@ public class app {
         System.out.println("Aluno com maior média: " +  nomeAlunoMaiormedia + " com a nota: " + alunoMaiorMedia);
         System.out.println("Aluno com menor média: " +  nomeAlunoMenormedia + " com a nota: " + alunoMenorMedia);
 
-
+        leia.close();
     }
 }
