@@ -8,15 +8,17 @@ public class Agenda {
     public void incluirContato(Contato contato){
         listaDeContatos.add(contato);
     }
-    public void removerContato(String NomeContato){
+    public boolean removerContato(String NomeContato){
         
         for(int i = 0; i < listaDeContatos.size();i++){
         
         if(listaDeContatos.get(i).getNome().equals(NomeContato)){
             listaDeContatos.remove(i);
+            return true;
         }
-    }
         
+    }
+            return false;
     }
 
     public void listarContatos(){
@@ -25,14 +27,15 @@ public class Agenda {
         }
         
     }
-    public void buscarContato(String nome){
+    public boolean buscarContato(String nome){
         for(int i = 0; i < listaDeContatos.size(); i++){
             if(listaDeContatos.get(i).getNome().contains(nome)){
                 System.out.println("Nome: " + listaDeContatos.get(i).getNome());
                 System.out.println("Telefone: " + listaDeContatos.get(i).getTelefone());
+                return true;
             }
         }
-    
+        return false;
     }
 
 

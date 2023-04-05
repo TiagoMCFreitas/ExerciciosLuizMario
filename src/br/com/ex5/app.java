@@ -22,14 +22,15 @@ public class app {
             System.out.println("Informe o nome: ");
             String nome = leia.nextLine();
             System.out.println("Informe o Telefone: ");
-            String telefone = leia.next();
+            String telefone = leia.nextLine();
             System.out.println("Informe o Email: ");
-            String email = leia.next();
+            String email = leia.nextLine();
             Contato objetoContato = new Contato(nome,email,telefone);
             
             objetoAgenda.incluirContato(objetoContato);
             System.out.println("para realizar outra operacao digite 0 para continuar digite 1");
             selecao = leia.nextInt();
+            leia.nextLine();
             }
             while(selecao == 2){
              
@@ -37,10 +38,13 @@ public class app {
                 
                 objetoAgenda.listarContatos();
                 System.out.println("informe o nome do contato que deseja excluir: ");
-                String nome = leia.next();
-                objetoAgenda.removerContato(nome);
+                String nome = leia.nextLine();
+                if(objetoAgenda.removerContato(nome) == false){
+                    System.out.println("item não existe");
+                }
                 System.out.println("para realizar outra operacao digite 0 para continuar digite 2");
                 selecao = leia.nextInt();
+                leia.nextLine();
             }
             if(selecao == 3){
                 System.out.println("Listagem de Contatos: ");
@@ -49,7 +53,10 @@ public class app {
             while(selecao == 4){
                 System.out.println("informe o nome ou  alguma parte do nome do contato a ser pesquisado");
                 String nome = leia.next();
-                objetoAgenda.buscarContato(nome);
+                if(objetoAgenda.buscarContato(nome)== false){
+                    System.out.println("Item não Encontrado");
+                }
+
                 System.out.println("para realizar outra operacao digite 0 para continuar digite 4");
                 selecao = leia.nextInt();
             }
